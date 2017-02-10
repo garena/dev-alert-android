@@ -21,7 +21,7 @@ In the example below, the `ParseException` may occur only for some specific resp
 While development or testing, when the issue happens, even if the developer/QA is not actively looking or monitoring the log for this issue, will get instantly notified.
 
 
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_ABDF4F424136B8B0F9673254AE6B8A1466ED84424CC71F8A757B150C498F59F9_1486712407990_output.gif)
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_ABDF4F424136B8B0F9673254AE6B8A1466ED84424CC71F8A757B150C498F59F9_1486712407990_output.gif" width="300"/>
 
 
 How to Use
