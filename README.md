@@ -8,6 +8,9 @@ In traditional android development, when an issue occurs, we use logs to dump th
 
 Using this library, you can provide visual warning to the developer/ QA when something goes wrong on your test or internal builds so that critical issues can be highlighted as and when they happen.
 
+<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_ABDF4F424136B8B0F9673254AE6B8A1466ED84424CC71F8A757B150C498F59F9_1486712407990_output.gif" width="300"/>
+
+## Example
 In the example below, the `ParseException` may occur only for some specific response from server and is not always reproducible.
 
 
@@ -21,10 +24,7 @@ In the example below, the `ParseException` may occur only for some specific resp
 While development or testing, when the issue happens, even if the developer/QA is not actively looking or monitoring the log for this issue, will get instantly notified.
 
 
-<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_ABDF4F424136B8B0F9673254AE6B8A1466ED84424CC71F8A757B150C498F59F9_1486712407990_output.gif" width="300"/>
-
-
-How to Use
+## How to Use
 
 Initialise the library in the `Application` class:
 
@@ -39,7 +39,7 @@ Report errors or warning from anywhere in the app:
     // report warning
     DevAlert.reportWarning(TAG, message, exception);
 
-Other Possible Use-Cases
+## Other Possible Use-Cases
 
 
 1. Report exceptions from background threads without crashing the app.
@@ -48,7 +48,7 @@ Other Possible Use-Cases
 
 3. Create custom rules for the health check of your app and visually alert the developer/QA when these rules are violated. For example: database calls on UI thread or adding heavy code in onCreate.
 
-Advance Usage
+## Advance Usage
 You can configure the library to show selective errors or warnings use the `DevAlertConfig:`
 
 
