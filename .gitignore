@@ -1,0 +1,20 @@
+.gradle
+**/local.properties
+**.DS_Store
+.idea
+*.class
+# Since moved to gradle therefore ignore all *.iml files
+*.iml
+# Emacs cache
+*.*~
+build
+local.properties
+miscs/scripts/*.xml
+infer-out
+*~
+gradle-app.setting
+*.swp
+miscs/scripts/shopee/
+ajcore.*
+fabric.properties
+*.logcat
