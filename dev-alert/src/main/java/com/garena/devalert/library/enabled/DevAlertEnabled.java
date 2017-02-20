@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 
 import com.garena.devalert.library.DevAlert;
@@ -65,7 +63,7 @@ public class DevAlertEnabled implements DevAlertManager, Application.ActivityLif
     }
 
     @Override
-    public void clearData(Context context) {
+    public synchronized void clearData(Context context) {
         mIgnoredTags.clear();
         mIgnoredTags.addAll(mConfig.getIgnoredTags());
         context.getSharedPreferences(mConfig.getSharedPrefName(), Context.MODE_PRIVATE)
@@ -73,7 +71,7 @@ public class DevAlertEnabled implements DevAlertManager, Application.ActivityLif
                 .apply();
     }
 
-    private void notify(@Nullable final Activity activity) {
+    private void notify(final Activity activity) {
         if (activity != null) {
             activity.runOnUiThread(new Runnable() {
                 @Override
@@ -84,7 +82,7 @@ public class DevAlertEnabled implements DevAlertManager, Application.ActivityLif
         }
     }
 
-    private void notifyUI(@NonNull Activity activity) {
+    private void notifyUI(Activity activity) {
         FrameLayout root = (FrameLayout) (activity).findViewById(android.R.id.content);
         if (root != null) {
             DevAlertData data = null;

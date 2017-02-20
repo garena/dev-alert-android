@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.garena.devalert.library.DevAlert;
-import com.garena.devalert.library.DevAlertConfig;
 
 public class SampleActivity extends AppCompatActivity {
 
@@ -16,11 +15,6 @@ public class SampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
-        DevAlertConfig config = new DevAlertConfig.Builder()
-                .showErrors(true)
-                .showWarnings(true)
-                .build();
-        DevAlert.init(getApplication(), BuildConfig.DEBUG, config);
     }
 
     public void showError(View view) {
