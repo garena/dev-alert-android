@@ -8,18 +8,21 @@ In traditional android development, when an issue occurs, we use logs to dump th
 
 Using this library, you can provide visual warning to the developer/ QA when something goes wrong on your test or internal builds so that critical issues can be highlighted as and when they happen.
 
-<img src="https://d2mxuefqeaa7sj.cloudfront.net/s_ABDF4F424136B8B0F9673254AE6B8A1466ED84424CC71F8A757B150C498F59F9_1486712407990_output.gif" width="300"/>
+<p align="center">
+    <img src="http://i.imgur.com/lPTL6op.gif" width="300"/>
+</p>
 
 ## Example
 In the example below, the `ParseException` may occur only for some specific response from server and is not always reproducible.
 
-
-    try {
-      Data data = parser.parse(response.body().json());
-    } catch(ParseException ex) {
-      Log.d(TAG, ex);
-      DevAlert.reportError(TAG, "Response data is corrupt", ex);
-    }
+```java
+try {
+  Data data = parser.parse(response.body().json());
+} catch(ParseException ex) {
+  Log.d(TAG, ex);
+  DevAlert.reportError(TAG, "Response data is corrupt", ex);
+}
+```
 
 While development or testing, when the issue happens, even if the developer/QA is not actively looking or monitoring the log for this issue, will get instantly notified.
 
@@ -28,16 +31,19 @@ While development or testing, when the issue happens, even if the developer/QA i
 
 Initialise the library in the `Application` class:
 
-
-    DevAlert.init(getApplication(), BuildConfig.DEBUG);
+```java
+DevAlert.init(getApplication(), BuildConfig.DEBUG);
+```
 
 Report errors or warning from anywhere in the app:
 
-    // report error
-    DevAlert.reportError(TAG, message, exception);
+```java
+// report error
+DevAlert.reportError(TAG, message, exception);
 
-    // report warning
-    DevAlert.reportWarning(TAG, message, exception);
+// report warning
+DevAlert.reportWarning(TAG, message, exception);
+```
 
 ## Other Possible Use-Cases
 
@@ -51,10 +57,11 @@ Report errors or warning from anywhere in the app:
 ## Advance Usage
 You can configure the library to show selective errors or warnings use the `DevAlertConfig:`
 
-
-    DevAlertConfig config = new DevAlertConfig.Builder()
-          .showErrors(true)
-          .showWarnings(false) // hide warnings
-          .ignoredTags(Arrays.asList("SUB_MODULE_1", "SUB_MODULE_2")) // hide these tags
-          .build();
-    DevAlert.init(getApplication(), isDevMode, config);
+```java
+DevAlertConfig config = new DevAlertConfig.Builder()
+      .showErrors(true)
+      .showWarnings(false) // hide warnings
+      .ignoredTags(Arrays.asList("SUB_MODULE_1", "SUB_MODULE_2")) // hide these tags
+      .build();
+DevAlert.init(getApplication(), isDevMode, config);
+```

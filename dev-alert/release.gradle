@@ -1,5 +1,5 @@
 ext {
-    bintrayRepo = 'Maven'
+    bintrayRepo = 'maven'
     bintrayName = 'dev-alert-android'
 
     publishedGroupId = 'com.garena.devalert'
@@ -8,8 +8,8 @@ ext {
 
     libraryDescription = 'A lightweight library which provides visual alerts to developers and QA when an issue happens during development/testing phase.'
 
-    siteUrl = 'https://github.com/nuuneoi/FBLikeAndroid'
-    gitUrl = 'https://github.com/nuuneoi/FBLikeAndroid.git'
+    siteUrl = 'https://github.com/garena/dev-alert-android'
+    gitUrl = 'https://github.com/garena/dev-alert-android.git'
 
     libraryVersion = '0.1.2'
 
@@ -116,7 +116,6 @@ bintray {
     pkg {
         repo = bintrayRepo
         name = bintrayName
-        userOrg = "garena-dev"
         desc = libraryDescription
         websiteUrl = siteUrl
         vcsUrl = gitUrl
