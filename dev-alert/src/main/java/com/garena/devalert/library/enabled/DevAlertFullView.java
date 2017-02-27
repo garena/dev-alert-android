@@ -51,7 +51,7 @@ class DevAlertFullView extends FrameLayout {
     }
 
     private void initView(final Context context) {
-        inflate(context, R.layout.dev_support_layout, this);
+        inflate(context, R.layout.devalert_support_layout, this);
         mClipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
 
         mText = (TextView) findViewById(R.id.title);
@@ -149,7 +149,7 @@ class DevAlertFullView extends FrameLayout {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = inflate(parent.getContext(), R.layout.trace_list_item, null);
+                convertView = inflate(parent.getContext(), R.layout.devalert_trace_list_item, null);
             }
             TextView title = (TextView) convertView.findViewById(R.id.title);
             TextView subTitle = (TextView) convertView.findViewById(R.id.sub_title);

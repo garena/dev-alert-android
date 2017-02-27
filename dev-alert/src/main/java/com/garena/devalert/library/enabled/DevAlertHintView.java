@@ -34,7 +34,7 @@ class DevAlertHintView extends FrameLayout {
     }
 
     private void initView(final Context context) {
-        inflate(context, R.layout.dev_support_view, this);
+        inflate(context, R.layout.devalert_support_view, this);
         mTextView = (TextView) findViewById(R.id.title);
 
         // dismiss

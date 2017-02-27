@@ -11,7 +11,7 @@ ext {
     siteUrl = 'https://github.com/nuuneoi/FBLikeAndroid'
     gitUrl = 'https://github.com/nuuneoi/FBLikeAndroid.git'
 
-    libraryVersion = '0.1.0'
+    libraryVersion = '0.1.2'
 
     developerId = 'kharea'
     developerName = 'Amulya Khare'
@@ -86,6 +86,12 @@ if (project.hasProperty("android")) { // Android libraries
         classifier = 'sources'
         from sourceSets.main.allSource
     }
+}
+
+afterEvaluate {
+    javadoc.classpath += files(android.libraryVariants.collect { variant ->
+        variant.javaCompile.classpath.files
+    })
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
