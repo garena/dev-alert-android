@@ -81,3 +81,7 @@ DevAlertConfig config = new DevAlertConfig.Builder()
       .build();
 DevAlert.init(getApplication(), isDevMode, config);
 ```
+
+## More Info
+
+Here is an informal blog post https://engineering.garena.com/introducing-devalert-garena-open-source/ which lists some scenarios in which we have used this library to improve our product.
