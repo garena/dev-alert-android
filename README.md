@@ -17,10 +17,10 @@ In the example below, the `ParseException` may occur only for some specific resp
 
 ```java
 try {
-  Data data = parser.parse(response.body().json());
+    Data data = parser.parse(response.body().json());
 } catch(ParseException ex) {
-  Log.d(TAG, ex);
-  DevAlert.reportError(TAG, "Response data is corrupt", ex);
+    Log.d(TAG, ex);
+    DevAlert.reportError(TAG, "Response data is corrupt", ex);
 }
 ```
 
@@ -28,11 +28,27 @@ While development or testing, when the issue happens, even if the developer/QA i
 
 
 ## How to Use
+Add the dependency in `build.gradle`:
+
+```
+dependencies {
+    ...
+    ...
+    compile 'com.garena.devalert:dev-alert:0.1.2'
+}
+```
 
 Initialise the library in the `Application` class:
 
 ```java
-DevAlert.init(getApplication(), BuildConfig.DEBUG);
+public class SampleApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        DevAlert.init(this, BuildConfig.DEBUG);
+    }
+}
 ```
 
 Report errors or warning from anywhere in the app:
@@ -61,7 +77,7 @@ You can configure the library to show selective errors or warnings use the `DevA
 DevAlertConfig config = new DevAlertConfig.Builder()
       .showErrors(true)
       .showWarnings(false) // hide warnings
-      .ignoredTags(Arrays.asList("SUB_MODULE_1", "SUB_MODULE_2")) // hide these tags
+      .ignoredTags(Arrays.asList("MODULE_A", "MODULE_B")) // hide these tags
       .build();
 DevAlert.init(getApplication(), isDevMode, config);
 ```
